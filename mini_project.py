@@ -57,5 +57,68 @@ while loops, for loops, lists, random, and turtle graphics.
 ==============================================================================
 Build your game below. Delete this line and start coding!
 '''
+import random
 
-print("My game is not built yet!")
+print(
+   '''
+▒█▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█░▄▀
+▒█▄▄▀ ▒█░░▒█ ▒█░░░ ▒█▀▄░
+▒█░▒█ ▒█▄▄▄█ ▒█▄▄█ ▒█░▒█
+
+
+▒█▀▀█ ░█▀▀█ ▒█▀▀█ ▒█▀▀▀ ▒█▀▀█
+▒█▄▄█ ▒█▄▄█ ▒█▄▄█ ▒█▀▀▀ ▒█▄▄▀
+▒█░░░ ▒█░▒█ ▒█░░░ ▒█▄▄▄ ▒█░▒█
+
+
+▒█▀▀▀█ ▒█▀▀█ ▀█▀ ▒█▀▀▀█ ▒█▀▀▀█ ▒█▀▀▀█ ▒█▀▀█ ▒█▀▀▀█
+░▀▀▀▄▄ ▒█░░░ ▒█░ ░▀▀▀▄▄ ░▀▀▀▄▄ ▒█░░▒█ ▒█▄▄▀ ░▀▀▀▄▄
+▒█▄▄▄█ ▒█▄▄█ ▄█▄ ▒█▄▄▄█ ▒█▄▄▄█ ▒█▄▄▄█ ▒█░▒█ ▒█▄▄▄█
+
+
+'''
+)
+options = ["rock", "paper", "scissors"]
+points1 = 0
+points2 = 0
+rounds = float(input("Best of: "))
+check = False
+while points1 < rounds/2 and points2 < rounds/2:
+  while check is False:
+    opt1 = str(input("Player 1 choose: "))	
+    if opt1.lower() in options:
+        check = True
+    else:
+	    print("Please enter a valid option")
+  check = False
+  opt2 = random.choice(options)
+  print("Computer picked:", opt2)
+  if(opt1 == opt2):
+    print(f"Palyer score: {points1}\nComputer score: {points2} \n")
+  elif (opt1 == "rock"and opt2=="scissors") or (opt1 == "scissors"and opt2=="paper") or (opt1 == "paper"and opt2=="rock"):
+    points1 += 1
+    print(f"Player score: {points1}\nComputer score: {points2} \n")
+  else:
+    points2 += 1
+    print(f"Player score: {points1}\nComputer score: {points2} \n")
+if(points1 > points2):
+  print(
+    '''
+▒█▀▀█ ▒█░░░ ░█▀▀█ ▒█░░▒█ ▒█▀▀▀ ▒█▀▀█ 　 ▒█░░▒█ ▀█▀ ▒█▄░▒█ ▒█▀▀▀█ █ 
+▒█▄▄█ ▒█░░░ ▒█▄▄█ ▒█▄▄▄█ ▒█▀▀▀ ▒█▄▄▀ 　 ▒█▒█▒█ ▒█░ ▒█▒█▒█ ░▀▀▀▄▄ ▀ 
+▒█░░░ ▒█▄▄█ ▒█░▒█ ░░▒█░░ ▒█▄▄▄ ▒█░▒█ 　 ▒█▄▀▄█ ▄█▄ ▒█░░▀█ ▒█▄▄▄█ ▄ 
+
+    '''
+  )
+else:
+  print(
+    '''
+▒█▀▀█ ▒█▀▀▀█ ▒█▀▄▀█ ▒█▀▀█ ▒█░▒█ ▀▀█▀▀ ▒█▀▀▀ ▒█▀▀█ 
+▒█░░░ ▒█░░▒█ ▒█▒█▒█ ▒█▄▄█ ▒█░▒█ ░▒█░░ ▒█▀▀▀ ▒█▄▄▀ 
+▒█▄▄█ ▒█▄▄▄█ ▒█░░▒█ ▒█░░░ ░▀▄▄▀ ░▒█░░ ▒█▄▄▄ ▒█░▒█ 
+
+▒█░░▒█ ▀█▀ ▒█▄░▒█ ▒█▀▀▀█ █ 
+▒█▒█▒█ ▒█░ ▒█▒█▒█ ░▀▀▀▄▄ ▀ 
+▒█▄▀▄█ ▄█▄ ▒█░░▀█ ▒█▄▄▄█ ▄ 
+  '''
+  )
